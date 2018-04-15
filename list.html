@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        .div1{
+            width: 409px;
+
+            background: #96b97d;
+        }
+        .div1 ul{
+            margin: 0px;
+            padding: 0px;
+        }
+        .li2{
+            margin-right: 0;
+            width: 100px;
+            height: 40px;
+            background: #66bb66;
+            color: #ffffff;
+            display: none;
+        }
+        .li1{
+            display: block;
+            width: 100px;
+            height: 40px;
+            list-style: none;
+            margin-right: 3px;
+            background: #ff6666;
+            float: left;
+        }
+        .a1{
+            color: #ffffff;
+            width: 100%;
+            height: 100%;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+
+        }
+
+        .last{
+            margin-right: 0;
+        }
+
+        .li1:hover{
+            background: #96b97d;
+        }
+        .li1:hover .li2{
+            display: block;
+        }
+
+
+       
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <ul>
+            <li class="li1">
+                <a href="" class="a1">list1</a>
+                    <ul class="ul1">
+                        <li class="li2">1111</li>
+                        <li class="li2">2222</li>
+                        <li class="li2">3333</li>
+                        <li class="li2">4444</li>
+                    </ul>
+
+            </li>
+            <li class="li1">
+                <a href="" class="a1">list2</a>
+            </li>
+            <li class="li1">
+                <a href="" class="a1">list3</a>
+            </li>
+            <li class="li1 last">
+                <a href="" class="a1">list4</a>
+            </li>
+        </ul>
+
+    </div>
+</body>
+</html>
