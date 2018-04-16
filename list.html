@@ -9,24 +9,12 @@
         }
         .div1{
             width: 409px;
-
-            background: #96b97d;
         }
         .div1 ul{
             margin: 0px;
             padding: 0px;
         }
-        .li2{
-            clear: both;
-            margin-right: 0;
-            width: 100px;
-            height: 40px;
-            text-align: center;
-            line-height: 40px;
-            background: #66bb66;
-            color: #ffffff;
-            display: none;
-        }
+
         .li1{
             display: block;
             width: 100px;
@@ -35,6 +23,26 @@
             margin-right: 3px;
             background: #ff6666;
             float: left;
+        }
+        .li2{
+            clear: right;
+            width: 100px;
+            margin-right: 0;
+            text-align: center;
+            line-height: 40px;
+            background: #66bb66;
+            color: #ffffff;
+            float: left;
+            display: none;
+        }
+        .li3{
+            list-style: none;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+            display: none;
         }
         .a1{
             color: #ffffff;
@@ -45,6 +53,13 @@
             line-height: 40px;
 
         }
+        .a2{
+            background: #66bb66;
+            color: #fff;
+            width: 100px;
+            height: 40px;
+            float: left;
+        }
 
         .last{
             margin-right: 0;
@@ -54,6 +69,12 @@
             background: #96b97d;
         }
         .li1:hover .li2{
+            display: block;
+        }
+        .li2:hover{
+            background: #44bb44;
+        }
+        .li2:hover .li3{
             display: block;
         }
 
@@ -70,17 +91,30 @@
         <ul>
             <li class="li1">
                 <a href="" class="a1">list1</a>
-                    <ul class="ul1">
-                        <li class="li2">1111</li>
-                        <li class="li2">2222</li>
-                        <li class="li2">3333</li>
-                        <li class="li2">4444</li>
+                    <ul>
+                        <li class="li2">
+                            <a href="" class="a2">1111</a>
+                            <ul>
+                                <li class="li3">1111</li>
+                                <li class="li3">2222</li>
+                                <li class="li3">3333</li>
+                            </ul>
+                        </li>
+                        <li class="li2">
+                            <a href="" class="a2">2222</a>
+                        </li>
+                        <li class="li2">
+                            <a href="" class="a2">3333</a>
+                        </li>
+                        <li class="li2">
+                            <a href="" class="a2">4444</a>
+                        </li>
                     </ul>
 
             </li>
             <li class="li1">
                 <a href="" class="a1">list2</a>
-                <ul class="ul1">
+                <ul>
                     <li class="li2">1111</li>
                     <li class="li2">2222</li>
                     <li class="li2">3333</li>
@@ -89,7 +123,7 @@
             </li>
             <li class="li1">
                 <a href="" class="a1">list3</a>
-                <ul class="ul1">
+                <ul>
                     <li class="li2">1111</li>
                     <li class="li2">2222</li>
                     <li class="li2">3333</li>
@@ -98,7 +132,7 @@
             </li>
             <li class="li1 last">
                 <a href="" class="a1">list4</a>
-                <ul class="ul1">
+                <ul>
                     <li class="li2">1111</li>
                     <li class="li2">2222</li>
                     <li class="li2">3333</li>
@@ -106,6 +140,7 @@
                 </ul>
             </li>
         </ul>
+
 
     </div>
 </body>
