@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .tian{
+            position: relative;
+            height: 404px;
+            width: 404px;
+        }
+        .square{
+            position: relative;
+            float: left;
+            height: 200px;
+            width: 200px;
+            background: #ffffff;
+            border: 1px solid #f00;
+        }
+        .square:hover{
+            border-color:  #0f0;
+            z-index: 999;
+        }
+
+        .top-right{
+            left: -1px;
+        }
+        .bottom-left{
+            top: -1px;
+        }
+        .bottom-right{
+            top: -1px;
+            left: -1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tian">
+        <div class="square top-left"></div>
+        <div class="square top-right"></div>
+        <div class="square bottom-left"></div>
+        <div class="square bottom-right"></div>
+    </div>
+</body>
+</html>
