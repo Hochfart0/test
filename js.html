@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //第一题
+    // var x=Math.random();
+    // var y=Math.random();
+    // x>y?alert('x ='+ x ):alert('y ='+ y)
+
+
+    //第二题
+    var today = new Date();
+    var year = today.getFullYear();
+    // var year = 100;
+    if(((year % 4== 0) && (year % 100 != 0))||year % 400 == 0){
+        console.log( today + '是闰年');
+    }
+    else{
+        console.log(today + '不是闰年');
+    }
+
+
+    //阶乘
+    // function jieCheng(a) {
+    //     var b = 1;
+    //     for (var i=1; i<a+1; i++) {
+    //         b *= i;
+    //     }
+    //     return b;
+    // };
+    // var num = prompt('请输入阶乘数','1');
+    // num *= 1;
+    // var jieguo = jieCheng(num);
+    // console.log(jieguo)
+
+
+
+    //阶乘相加
+    // function jieChengXiangJia(a) {
+    //     var c = 0;
+    //     for (var i=1; i<a+1; i++) {
+    //         function jieCheng(i) {
+    //             var b = 1;
+    //             for (var j = 1; j < i + 1; j++) {
+    //                 b *= j;
+    //             }
+    //             return b;
+    //         };
+    //         var b = jieCheng(i);
+    //         c += b;
+    //     }
+    //     return c;
+    // };
+    // var num = prompt('请输入阶乘数','1');
+    // num *= 1;
+    // var jieguo = jieChengXiangJia(num);
+    // console.log(jieguo);
+</script>
+</body>
+</html>
