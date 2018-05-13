@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <script>
     //第一题
     // var x=Math.random();
@@ -13,15 +14,15 @@
 
 
     //第二题
-    var today = new Date();
-    var year = today.getFullYear();
-    // var year = 100;
-    if(((year % 4== 0) && (year % 100 != 0))||year % 400 == 0){
-        console.log( today + '是闰年');
-    }
-    else{
-        console.log(today + '不是闰年');
-    }
+    // var today = new Date();
+    // var year = today.getFullYear();
+    // // var year = 100;
+    // if(((year % 4== 0) && (year % 100 != 0))||year % 400 == 0){
+    //     console.log( today + '是闰年');
+    // }
+    // else{
+    //     console.log(today + '不是闰年');
+    // }
 
 
     //阶乘
@@ -39,7 +40,7 @@
 
 
 
-    //阶乘相加
+    //第四题阶乘相加
     // function jieChengXiangJia(a) {
     //     var c = 0;
     //     for (var i=1; i<a+1; i++) {
@@ -59,6 +60,181 @@
     // num *= 1;
     // var jieguo = jieChengXiangJia(num);
     // console.log(jieguo);
+
+
+    //第五题
+    // function five(a) {
+    //     for( var i = 1; i < a + 1; i++) {
+    //         var b = '';
+    //         for (var j = 1; j < i + 1; j++) {
+    //             b = b + j + ' ';
+    //         }
+    //         console.log(b + '\n');
+    //     }
+    // };
+    // var num = prompt('请输入层数','3');
+    // num *= 1;
+    // five(num);
+
+
+    //第六题
+    // function six(a) {
+    //     for( var i = 0; i < a; i++ ){
+    //         var c = '';
+    //         for ( var b = a - i; b > 1; b--){
+    //             c = c + ' ';
+    //         }
+    //         for ( var j = 0; j < i + 1; j++){
+    //             c = c + '* ';
+    //         }
+    //         console.log(c);
+    //         console.log('\n');
+    //     }
+    // };
+    // var num = prompt('请输入层数','3');
+    // num *= 1;
+    // six(num);
+
+
+
+
+    //第七题
+    // function seven(a) {
+    //     for ( var i = 100; i < 1000; i++) {
+    //         if (i % 4 == 2 && i % 7 == 3 && i % 9 == 5) {
+    //             console.log(i);
+    //         }
+    //     }
+    // };
+    // var num = seven();
+    // console.log(num);
+
+
+    //第八题
+    // function eight() {
+    //     for ( var i = 1000; i < 10000; i++) {
+    //         var a = Math.floor(i/1000);
+    //         var b = Math.floor(i/100) % 10;
+    //         var c = Math.floor(i/10) % 10;
+    //         var d = Math.floor(i/1) % 10;
+    //         if (i % 13 == 0 && b + c == a) {
+    //             console.log(i);
+    //         }
+    //     }
+    // };
+    // eight();
+
+
+    //第三题
+    // function three() {
+    //     var n = 0;
+    //     var a = '';
+    //     for ( var i = 1; i < 1000; i++) {
+    //         if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+    //             a = a +' ' + i;
+    //             n++;
+    //             if (n % 6 == 0){
+    //                 a = a + '\n';
+    //             }
+    //         }
+    //     }
+    //     console.log(a);
+    // };
+    // three();
+
+
+    //第四题
+    // function four() {
+    //     var n = 0;
+    //     var a = '';
+    //     for ( var i = 100; i < 1000; i++){
+    //         var m = 0;
+    //         for ( var j = 2; j < i; j++){
+    //             if ( i % j == 0 ){
+    //                 m++;
+    //             }
+    //         }
+    //         if (m == 0){
+    //             a = a + ' ' + i;
+    //             n++;
+    //             if ( n % 6 == 0){
+    //                 a = a + '\n';
+    //             }
+    //         }
+    //     }
+    //     console.log(a);
+    // };
+    // four();
+
+
+    //第七题
+    // function fibo(a) {
+    //     var fbnc = new Array(a);
+    //     fbnc[0] = 1;
+    //     fbnc[1] = 1;
+    //     for ( var i = 2; i < fbnc.length; i++){
+    //         fbnc[i] = fbnc[i-1] + fbnc[i-2];
+    //     }
+    //     console.log(fbnc[a-1]);
+    // }
+    // var num = prompt('请输入第n项', 3);
+    // num *= 1;
+    // fibo(num);
+
+
+
+    //第八题
+    // function eight(n) {
+    //     var x = 0;
+    //     var a = new Array(n);
+    //     var d = 0;
+    //     for ( var i = 1; i < n + 1; i++){
+    //         var b = Math.pow(-1, i - 1);
+    //         var c = 1 / (2 * i - 1);
+    //         a[i-1] = b * c;
+    //         d = d + a[i-1];
+    //     }
+    //     var pai = 4 * d;
+    //     return pai;
+    // }
+    // num = prompt('请输入n的值', 100)
+    // var pai = eight(num);
+    // console.log(pai);
+
+
+    //第九题
+    // function nine(n) {
+    //     var a = 0;
+    //     for ( var i = 0; i < n; i++){
+    //         var x = Math.random() * 8 + 1;
+    //         var y = Math.random() * 8 + 1;
+    //         var z = Math.random() * 8 + 1;
+    //         if (Math.floor(x) == 8 || Math.floor(y) == 8 || Math.floor(z) == 8){
+    //             a++;
+    //         }
+    //     }
+    //     return (a / n);
+    // }
+    // num = prompt('请输入总次数', 100);
+    // num *= 1;
+    // console.log(nine(num));
+
+
+    //第四题
+    // function collectDigits(s) {
+    //     var a = new Array();
+    //     var b = new Array();
+    //
+    // }
+
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
