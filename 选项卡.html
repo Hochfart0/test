@@ -3,8 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            list-style: none;
+            width: 400px;
+            height: 200px;
+            border: 1px solid #aaa;
+            background: #eeeeee;
+            position: relative;
+
+        }
+        #menu li{
+            width: 120px;
+            height: 30px;
+            float: left;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            color: #000000;
+            background: #999999;
+        }
+        #menu div{
+            text-align: left;
+            width: 401px;
+            height: 160px;
+            color: #000000;
+            background: #eee;
+            border-top: 1px solid #aaa;
+            cursor: auto;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            z-index: 0;
+        }
+        #menu .naa{
+            background: #000000;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 
+<ul id="menu">
+    <li>
+        <p>list1</p>
+        <div>111</div>
+    </li>
+    <li>
+        <p>list2</p>
+        <div>222</div>
+    </li>
+    <li class="naa">
+        <p>list3</p>
+        <div>333</div>
+    </li>
+</ul>
+
+
+<script>
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    var aDiv = oMenu.getElementsByTagName('div');
+    for (var i=0; i<aLi.length; i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function () {
+            for (var i=0; i<aLi.length; i++){
+                aLi[i].className = '';
+                aDiv[i].style.zIndex = '0';
+            }
+            this.className = 'naa';
+            aDiv[this.index].style.zIndex = '999';
+        }
+
+
+    }
+
+</script>
 </body>
 </html>
