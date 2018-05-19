@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            list-style: none;
+            width: 120px;
+            border: 1px solid #aaa;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #menu li{
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-bottom: 1px dashed #ccc;
+            cursor: pointer;
+        }
+        #menu li:hover{
+            background: #cccccc;
+        }
+        #menu .last{
+            border-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!--<form action="">-->
+        <!--用户名: <input type="text" name="username">-->
+    <!--</form>-->
+
+    <!--<script>-->
+        <!--var aUsername = document.getElementsByName('username');-->
+        <!--console.log(aUsername);-->
+    <!--</script>-->
+<!--右键菜单-->
+    <ul id="menu">
+        <li>菜单1</li>
+        <li>菜单2</li>
+        <li>菜单3</li>
+        <li>菜单4</li>
+        <li class="last">菜单5</li>
+    </ul>
+
+
+    <script>
+        var oMenu = document.getElementById('menu');
+        var aLi = document.getElementsByTagName('li');
+        document.oncontextmenu = function (e) {
+            e = e || window.event;  //解决兼容性问题
+            // alert(e.clientX + ',' + e.clientY);
+            oMenu.style.top = e.clientY + 'px';
+            oMenu.style.left = e.clientX + 'px';
+            oMenu.style.display = 'block';
+
+
+            return false;   //阻止默认行为
+        };
+        document.onclick = function () {
+            oMenu.style.display = 'none'
+        };
+        for (var i=0; i<aLi.length; i++){
+            aLi[i].onclick = function(){
+                //对于当前对象的引用
+                alert(this.innerHTML);
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
