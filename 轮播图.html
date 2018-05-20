@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #menu{
+            width: 520px;
+            height: 280px;
+            position: relative;
+            margin: 100px auto;
+            border: 1px solid #000;
+            z-index: 999;
+        }
+        #menu ul{
+            position: absolute;
+            bottom: 10px;
+            z-index: 100;
+        }
+        #menu li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            font-size: 15px;
+            line-height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            background: #000000;
+            color: #ffffff;
+        }
+        #menu #direction{
+            left: 10px;
+        }
+        #menu #list{
+            right: 10px;
+        }
+        #menu #direction li{
+            float: left;
+        }
+        #menu #list li{
+            float: left;
+            cursor: pointer;
+        }
+        #pic img{
+            position: absolute;
+            display: none;
+            top: 0;
+            left: 0;
+        }
+        #list .omo{
+            background: #ff6600;
+        }
+        #pic .omo{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <ul id="direction">
+            <li>&lt;</li>
+            <li>&gt;</li>
+        </ul>
+        <ul id="list">
+            <li class="omo">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="pic">
+            <img src="img/1.jpg" alt="" class="omo">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+
+    </div>
+
+    <script>
+        var oMenu = document.getElementById('menu');
+        var oDirection = document.getElementById('direction');
+        var aDirectionLi = oDirection.getElementsByTagName('li');
+        var oList = document.getElementById('list');
+        var aListLi = oList.getElementsByTagName('li')
+        var oPic = document.getElementById('pic');
+        var aImg = oPic.getElementsByTagName('img');
+        for (var i=0; i<aListLi.length; i++){
+            aListLi[i].index = i;
+            aListLi[i].onmouseover = function () {
+
+                for (var i=0; i<aListLi.length; i++){
+                    aListLi[i].className = '';
+                    aImg[i].className = '';
+                }
+                this.className = 'omo';
+                aImg[this.index].className = 'omo';
+            };
+        }
+        for (var i=0; i<aDirectionLi.length; i++){
+            aDirectionLi[i].index = i;
+            aDirectionLi[i].onclick = function () {
+                if (this.index == 1) {
+                    for (var i=0; i<aListLi.length; i++){
+                        if (aListLi[i].className == 'omo'){
+                            aListLi[i].className = '';
+                            aImg[i].className = '';
+                            if (i==3){
+                                i=-1;
+                            }
+                            aListLi[i+1].className = 'omo';
+                            aImg[i+1].className = 'omo';
+                            break;
+                        }
+                    }
+                }
+                if (this.index == 0) {
+                    for (var i=0; i<aListLi.length; i++){
+                        if (aListLi[i].className == 'omo'){
+                            aListLi[i].className = '';
+                            aImg[i].className = '';
+                            if (i==0){
+                                i=4;
+                            }
+                            aListLi[i-1].className = 'omo';
+                            aImg[i-1].className = 'omo';
+                            break;
+                        }
+                    }
+                }
+            };
+        }
+
+        var timer = setInterval(function () {
+            for (var i=0; i<aListLi.length; i++){
+                if (aListLi[i].className == 'omo'){
+                    aListLi[i].className = '';
+                    aImg[i].className = '';
+                    if (i==3){
+                        i=-1;
+                    }
+                    aListLi[i+1].className = 'omo';
+                    aImg[i+1].className = 'omo';
+                    break;
+                }
+            }
+        },1000);
+        oMenu.onmouseover = function () {
+            clearInterval(timer);
+        };
+        oMenu.onmouseout = function () {
+            var timer = setInterval(function () {
+                for (var i=0; i<aListLi.length; i++){
+                    if (aListLi[i].className == 'omo'){
+                        aListLi[i].className = '';
+                        aImg[i].className = '';
+                        if (i==3){
+                            i=-1;
+                        }
+                        aListLi[i+1].className = 'omo';
+                        aImg[i+1].className = 'omo';
+                        break;
+                    }
+                }
+            },1000);
+            oMenu.onmouseover = function () {
+                clearInterval(timer);
+            };
+        }
+
+
+
+    </script>
+</body>
+</html>
