@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #menu{
+            width: 520px;
+            height: 280px;
+            position: relative;
+            margin: 100px auto;
+            border: 1px solid #000;
+            z-index: 999;
+            overflow: hidden;
+        }
+        #menu ul{
+            position: absolute;
+            bottom: 10px;
+            z-index: 100;
+        }
+        #menu li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            font-size: 15px;
+            line-height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            background: #000000;
+            color: #ffffff;
+        }
+        #menu #direction{
+            left: 10px;
+        }
+        #menu #list{
+            right: 10px;
+        }
+        #menu #direction li{
+            float: left;
+        }
+        #menu #list li{
+            float: left;
+            cursor: pointer;
+        }
+        #pic{
+            position: absolute;
+            width: 2600px;
+        }
+        #pic img{
+            float: left;
+            width: 520px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="menu">
+    <ul id="direction">
+        <li id="left">&lt;</li>
+        <li id="right">&gt;</li>
+    </ul>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="pic">
+        <img src="img/1.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/3.jpg" alt="">
+        <img src="img/4.jpg" alt="">
+        <img src="img/1.jpg" alt="">
+    </div>
+
+
+    <script>
+        var oMenu = document.getElementById('menu');
+        var oPic = document.getElementById('pic');
+        var aImg = oPic.getElementsByTagName('img');
+        var oList = document.getElementById('list');
+        var aListLi = oList.getElementsByTagName('li');
+        var oLeft = document.getElementById('left');
+        var oRight = document.getElementById('right');
+        var iNowIndex = 0;
+        var speed = -2;
+        var timer;
+        var player;
+
+        for (var i=0; i<aListLi.length; i++){
+            aListLi[i].index = i;
+            aListLi[i].onmouseover = function () {
+                iNowIndex = this.index;
+                changeImg();
+                // iNowIndex = this.index;
+            };
+        }
+        var changeImg = function (){
+            var a = iNowIndex;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                speed = (-(aImg[0].offsetWidth) * iNowIndex - oPic.offsetLeft)/10;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                console.log(a);
+                oPic.style.left = oPic.offsetLeft + speed + 'px';
+                if (-oPic.offsetLeft == (aImg[0].offsetWidth)*iNowIndex){
+                    clearInterval(timer);
+                }
+            },5);
+        };
+        oLeft.onclick = oRight.onclick = function(){
+            if (this === oLeft){
+                iNowIndex--;
+
+            }else {
+                iNowIndex++;
+            }
+            if (iNowIndex < 0){
+                iNowIndex = 3;
+            }
+            if (iNowIndex > 4){
+                oPic.style.left = 0;
+                iNowIndex = 1;
+                changeImg();
+            }
+            changeImg();
+        };
+        var play = function (){
+            player = setInterval(function () {
+                oRight.onclick();
+            },1000);
+        };
+        play();
+        oMenu.onmouseover = function () {
+            clearInterval(player);
+        };
+        oMenu.onmouseout = function () {
+            play();
+        }
+
+
+
+
+
+
+
+
+        //
+        // oPic.innerHTML += oPic.innerHTML;
+        // oPic.style.width = oPic.offsetWidth *2 + 'px';
+        // var turn = function () {
+        //     timer = setInterval(function () {
+        //         oPic.style.left = oPic.offsetLeft + speed + 'px';
+        //         if (-oPic.offsetLeft >= oPic.offsetWidth/2){
+        //             oPic.style.left = 0;
+        //         }
+        //         if ((-oPic.offsetLeft) % (oPic.offsetWidth/8) == 0) {
+        //             clearInterval(timer);
+        //             timer = setTimeout(function () {
+        //                 turn();
+        //             },2000)
+        //         }
+        //     },20);
+        // }
+        // oPic.onmouseover = function (){
+        //     clearInterval(timer);
+        //     oPic.onmouseleave = function () {
+        //         turn();
+        //     }
+        // }
+        // turn();
+    </script>
+</body>
+</html>
