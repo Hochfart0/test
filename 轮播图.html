@@ -89,89 +89,54 @@
         var aListLi = oList.getElementsByTagName('li')
         var oPic = document.getElementById('pic');
         var aImg = oPic.getElementsByTagName('img');
+        var iNowIndex = 0;
+        var timer;
         for (var i=0; i<aListLi.length; i++){
             aListLi[i].index = i;
             aListLi[i].onmouseover = function () {
-
-                for (var i=0; i<aListLi.length; i++){
-                    aListLi[i].className = '';
-                    aImg[i].className = '';
-                }
-                this.className = 'omo';
-                aImg[this.index].className = 'omo';
+                iNowIndex = this.index;
+                changeImg();
             };
+        }
+        var changeImg = function () {
+            for (var i=0; i<aListLi.length; i++){
+                aListLi[i].className = '';
+                aImg[i].className = '';
+            }
+            aListLi[iNowIndex].className = 'omo';
+            aImg[iNowIndex].className = 'omo';
         }
         for (var i=0; i<aDirectionLi.length; i++){
             aDirectionLi[i].index = i;
             aDirectionLi[i].onclick = function () {
                 if (this.index == 1) {
-                    for (var i=0; i<aListLi.length; i++){
-                        if (aListLi[i].className == 'omo'){
-                            aListLi[i].className = '';
-                            aImg[i].className = '';
-                            if (i==3){
-                                i=-1;
-                            }
-                            aListLi[i+1].className = 'omo';
-                            aImg[i+1].className = 'omo';
-                            break;
-                        }
+                    iNowIndex++;
+                    if (iNowIndex == aListLi.length){
+                        iNowIndex = 0;
                     }
-                }
-                if (this.index == 0) {
-                    for (var i=0; i<aListLi.length; i++){
-                        if (aListLi[i].className == 'omo'){
-                            aListLi[i].className = '';
-                            aImg[i].className = '';
-                            if (i==0){
-                                i=4;
-                            }
-                            aListLi[i-1].className = 'omo';
-                            aImg[i-1].className = 'omo';
-                            break;
-                        }
+                    changeImg();
+                }else if(this.index == 0) {
+                    iNowIndex--;
+                    if (iNowIndex == -1){
+                        iNowIndex = aListLi.length - 1;
                     }
+                    changeImg();
                 }
             };
         }
 
-        var timer = setInterval(function () {
-            for (var i=0; i<aListLi.length; i++){
-                if (aListLi[i].className == 'omo'){
-                    aListLi[i].className = '';
-                    aImg[i].className = '';
-                    if (i==3){
-                        i=-1;
-                    }
-                    aListLi[i+1].className = 'omo';
-                    aImg[i+1].className = 'omo';
-                    break;
-                }
-            }
-        },1000);
+        play();
         oMenu.onmouseover = function () {
             clearInterval(timer);
         };
         oMenu.onmouseout = function () {
-            var timer = setInterval(function () {
-                for (var i=0; i<aListLi.length; i++){
-                    if (aListLi[i].className == 'omo'){
-                        aListLi[i].className = '';
-                        aImg[i].className = '';
-                        if (i==3){
-                            i=-1;
-                        }
-                        aListLi[i+1].className = 'omo';
-                        aImg[i+1].className = 'omo';
-                        break;
-                    }
-                }
-            },1000);
-            oMenu.onmouseover = function () {
-                clearInterval(timer);
-            };
+            play();
         }
-
+        function play(){
+            timer = setInterval(function () {
+                aDirectionLi[1].onclick();
+            },1000);
+        }
 
 
     </script>

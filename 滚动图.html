@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #contain{
+            width: 330px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #ul1{
+            width: 440px;
+            position: absolute;
+        }
+        #ul1 li{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: #000000;
+            color: #ffffff;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            margin-right: 10px;
+        }
+        #div1{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 30px;
+        }
+        #div1 span{
+            background: #cccccc;
+            float: left;
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #left{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contain">
+        <ul id="ul1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="div1">
+            <span id="left">向左</span>
+            <span id="right">向右</span>
+        </div>
+    </div>
+
+    <script>
+        var oUl = document.getElementById('ul1');
+        var oLeft = document.getElementById('left');
+        var oRight = document.getElementById('right');
+        var timer;
+        var speed = -2;
+        oUl.innerHTML += oUl.innerHTML;
+        oUl.style.width = oUl.offsetWidth *2 + 'px';
+        var turn = function () {
+            timer = setInterval(function () {
+                oUl.style.left = oUl.offsetLeft + speed + 'px';
+                if (-oUl.offsetLeft >= oUl.offsetWidth/2){
+                    oUl.style.left = 0;
+                }
+                if (-oUl.offsetLeft < 0){
+                    oUl.style.left = -oUl.offsetWidth/2 + 'px';
+                }
+            },30);
+        }
+        turn();
+        oLeft.onmouseover = oRight.onmouseover = function () {
+            clearInterval(timer);
+            if (this === oLeft){
+                speed = -2;
+            }else {
+                speed = 2;
+            }
+            turn();
+        }
+
+    </script>
+</body>
+</html>

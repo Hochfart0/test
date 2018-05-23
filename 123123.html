@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #div{
+            background: #ff0000;
+            opacity: 1;
+        }
+        #img{
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
+    <div id="div">111</div>
+    <img src="img/1.jpg" alt="" id="img">
+    <script>
+        var oDiv = document.getElementById('div');
+        var oImg = document.getElementById('img');
+        oImg.onmouseover = function () {
+            var alpha = 100;
+            var speed = -2;
+            var runner = setInterval(function () {
+                alpha = alpha + speed;
+                oImg.style.opacity = alpha/100;
+                if (alpha == 30) {
+                    clearInterval(runner);
+                }
+            },10)
 
+        }
+    </script>
 </body>
 </html>
