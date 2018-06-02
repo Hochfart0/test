@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #small{
+            height: 400px;
+            width: 400px;
+            position: relative;
+            float: left;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        #square{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #0ff;
+            opacity: 0.5;
+            display: none;
+        }
+        #big{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            float: left;
+            display: none;
+        }
+        #big img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div id="small">
+            <img src="img/1.jpg" alt="">
+            <div id="square">
+            </div>
+        </div>
+        <div id="big">
+            <img src="img/2.jpg" alt="" id="bigimg">
+        </div>
+    </div>
+
+
+
+<script>
+    var oSmall = document.getElementById('small');
+    var oSquare = document.getElementById('square');
+    var oBig = document.getElementById('big');
+    var oBigImg = document.getElementById('bigimg');
+    oSmall.onmouseover = function (e) {
+        oSquare.style.display = 'block';
+        oBig.style.display = 'block';
+        oSmall.onmousemove = function (e) {
+            oSquare.style.left = e.clientX - oSquare.offsetWidth/2 + 'px';
+            oSquare.style.top = e.clientY - oSquare.offsetHeight/2 + 'px';
+            console.log(oSquare.offsetTop);
+            oBigImg.style.top = -(e.clientY - oSquare.offsetHeight/2)*2 + 'px';
+            oBigImg.style.left = -(e.clientX - oSquare.offsetWidth/2)*2 + 'px';
+            if (e.clientY + oSquare.offsetHeight/2 >= oSmall.offsetHeight){
+                oSquare.style.top = oSmall.offsetHeight - oSquare.offsetHeight + 'px';
+                oBigImg.style.top = -(oSmall.offsetHeight - oSquare.offsetHeight)*2 + 'px';
+            }
+            if (e.clientX + oSquare.offsetWidth/2 >= oSmall.offsetWidth){
+                oSquare.style.left = oSmall.offsetWidth - oSquare.offsetWidth + 'px';
+                oBigImg.style.left = -(oSmall.offsetWidth - oSquare.offsetWidth)*2 + 'px';
+            }
+            if (e.clientY - oSquare.offsetHeight/2 <= 0){
+                oSquare.style.top = 0;
+                oBigImg.style.top = 0;
+            }
+            if (e.clientX - oSquare.offsetWidth/2 <= 0){
+                oSquare.style.left = 0;
+                oBigImg.style.left = 0;
+            }
+
+        };
+        oSmall.onmouseleave = function () {
+            oSquare.style.display = 'none';
+            oBig.style.display = 'none';
+        }
+    };
+</script>
+</body>
+</html>
