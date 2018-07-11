@@ -4,52 +4,85 @@
         <meta charset="UTF-8">
         <title>this is a title</title>
         <style>
-            .div div{
-                width: 100px;
-                height: 100px;
-                background: #cccccc;
-
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            div{
+                height: 500px;
             }
             #div1{
                 background: #ff0000;
             }
             #div2{
-                background: #00ff00;
-
-            }
-            #div3{
                 background: #ffff00;
             }
-            #div4{
-                background: #cccccc;
+            #div3{
+                background: #00ff00;
+            }
+            #container{
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            #container a{
+                float: left;
+                color: #fff;
+                margin-right: 10px;
             }
         </style>
     </head>
     <body>
-        <!--<h1>this is a 标题</h1>-->
-        <!--<p>this is a 段落</p>-->
-        <!--<a href="http://www.baidu.com" target="_blank">百度一下</a>-->
-        <!--<table border="10">-->
-            <!--<tr>-->
-                <!--<td>11</td>-->
-                <!--<td>22</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>33</td>-->
-                <!--<td>44</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-        <!--<img src="bd_logo1.png" alt="" title="这是谷歌">-->
-        <!--<div>divdiv</div>-->
-        <!--<span>spanspan</span>-->
-        <div class="div">
-            <div id="div1">div1</div>
-            <div id="div2">div2</div>
-            <div id="div3">div3</div>
-        </div>
-        <div id="div4">aaaaaaaaaaa</div>
+    <div id="container">
+        <a id="a1" href="#div1">#div1</a>
+        <a id="a2" href="#div2">#div2</a>
+        <a id="a3" href="#div3">#div3</a>
+    </div>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div></div>
 
+    <script src="jQuery练习/jquery-1.12.4.js"></script>
 
+        // var oContent = document.getElementById('content');
+        // var oBtn = document.getElementById('btn');
+        // var obj = {};
+        // oBtn.onclick = function () {
+        //     var arr = [];
+        //     for (var i = 0; i<7; i++){
+        //         arr.push(Math.floor(Math.random() * 35 + 1));
+        //     }
+        //     oContent.innerHTML = arr;
+        //     var num = Math.random();
+        //     location.hash = num;
+        //     obj[num] = arr;
+        //
+        // }
+        // window.onhashchange = function () {
+        //     var iHash = location.hash.substr(1);
+        //     oContent.innerHTML = obj[iHash];
+        //     if (typeof obj[iHash] == 'undefined'){
+        //         oContent.innerHTML = '空';
+        //     }
+        // }
+    <script>
 
+        $("#container a").click(function() {
+            var $ele = $($(this).attr('href'));
+            $("html,body").animate({
+                scrollTop: $ele.offset().top
+            },500);
+            history.pushState($($(this).attr('href')).offset().top,'');
+            return false;
+        });
+        window.onpopstate = function (e) {
+            $('html,body').animate({
+                scrollTop: e.state
+            },500);
+            return false;
+        }
+
+    </script>
     </body>
 </html>
