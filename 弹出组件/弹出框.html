@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+        }
+        #login{
+            cursor: pointer;
+        }
+        #container{
+            height: 100%;
+            width: 100%;
+            display: none;
+        }
+        #background{
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0.5;
+            background-color: #aaa;
+        }
+        #lgn{
+            width: 300px;
+            height: 300px;
+            z-index: 10;
+            position: absolute;
+            color: #000000;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%,0);
+            background-color: #ffffff;
+        }
+        #lgn #close{
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin: 5px;
+            cursor: pointer;
+            float: right;
+            color: #ffffff;
+            background: #aaaaaa;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <button id="login">点击登录</button>
+    <!--<div id="container">-->
+        <!--<div id="background"></div>-->
+        <!--<div id="lgn">登录-->
+            <!--<span id="close">X</span>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <script>
+        // var oLogin = document.getElementById('login');
+        // var oLgn = document.getElementById('lgn');
+        // var oClose = document.getElementById('close');
+        // var oContainer = document.getElementById('container');
+        // oLogin.onclick = function () {
+        //     oContainer.style.display = 'block';
+        //     oClose.onclick = function () {
+        //         oContainer.style.display = 'none';
+        //     }
+        // }
+
+    </script>
+</body>
+</html>
