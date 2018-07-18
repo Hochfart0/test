@@ -3,86 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>this is a title</title>
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            div{
-                height: 500px;
-            }
-            #div1{
-                background: #ff0000;
-            }
-            #div2{
-                background: #ffff00;
-            }
-            #div3{
-                background: #00ff00;
-            }
-            #container{
-                position: fixed;
-                top: 0;
-                left: 0;
-            }
-            #container a{
-                float: left;
-                color: #fff;
-                margin-right: 10px;
-            }
-        </style>
+
     </head>
     <body>
-    <div id="container">
-        <a id="a1" href="#div1">#div1</a>
-        <a id="a2" href="#div2">#div2</a>
-        <a id="a3" href="#div3">#div3</a>
-    </div>
-    <div id="div1"></div>
-    <div id="div2"></div>
-    <div id="div3"></div>
-    <div></div>
 
-    <script src="jQuery练习/jquery-1.12.4.js"></script>
-
-        // var oContent = document.getElementById('content');
-        // var oBtn = document.getElementById('btn');
-        // var obj = {};
-        // oBtn.onclick = function () {
-        //     var arr = [];
-        //     for (var i = 0; i<7; i++){
-        //         arr.push(Math.floor(Math.random() * 35 + 1));
-        //     }
-        //     oContent.innerHTML = arr;
-        //     var num = Math.random();
-        //     location.hash = num;
-        //     obj[num] = arr;
-        //
-        // }
-        // window.onhashchange = function () {
-        //     var iHash = location.hash.substr(1);
-        //     oContent.innerHTML = obj[iHash];
-        //     if (typeof obj[iHash] == 'undefined'){
-        //         oContent.innerHTML = '空';
-        //     }
-        // }
     <script>
-
-        $("#container a").click(function() {
-            var $ele = $($(this).attr('href'));
-            $("html,body").animate({
-                scrollTop: $ele.offset().top
-            },500);
-            history.pushState($($(this).attr('href')).offset().top,'');
-            return false;
-        });
-        window.onpopstate = function (e) {
-            $('html,body').animate({
-                scrollTop: e.state
-            },500);
-            return false;
+        function find(str) {
+            var arr = str.split(' ');
+            for (var i=1; i<arr.length; i++){
+                for (var j=0; j<arr.length-i; j++){
+                    if (arr[j].length > arr[j+1].length){
+                        var x = arr[j+1];
+                        arr[j+1] = arr[j];
+                        arr[j] = x;
+                    }
+                }
+            }
+            var a = [arr[0],arr[arr.length-1]];
+            return (a);
         }
-
+        var a = find('asdf asdfsdf asdfasdf as fdafadf');
+        console.log(a);
     </script>
     </body>
 </html>

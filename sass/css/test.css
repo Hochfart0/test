@@ -1,0 +1,38 @@
+body {
+  background: #f00; }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: normal; }
+
+.head {
+  width: 200px;
+  height: 200px; }
+
+.item1 {
+  width: 20px; }
+
+.item2 {
+  width: 40px; }
+
+.item3 {
+  width: 60px; }
+
+.item4 {
+  width: 80px; }
+
+.item5 {
+  width: 100px; }
+
+.a5 {
+  width: 100; }
+
+.a7 {
+  width: 140; }
+
+.a9 {
+  width: 180; }
+
+/*# sourceMappingURL=test.css.map */

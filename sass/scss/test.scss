@@ -1,0 +1,28 @@
+$color:#f00;
+$a:'head';
+body{
+  background: $color;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  letter-spacing: normal;
+}
+.#{$a}{
+  width: 200px;
+  height: 200px;
+}
+@for $i from 1 through 5{
+  .item#{$i}{
+    width: 20px*$i;
+  }
+}
+
+$j:5;
+@while($j<10){
+  .a#{$j}{
+    width: 20*$j;
+  }
+  $j:$j+2;
+}
