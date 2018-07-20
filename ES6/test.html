@@ -58,12 +58,38 @@
         var arr1 = Array.of(1,2,3,4);
         console.log(arr1); */
 
-        let arr1 = [1,2,3,3,4];
+        /* let arr1 = [1,2,3,3,4];
         let arr2 = new Set(arr1);
         let result = Array.from(arr2);
-        console.log(arr2);
+        console.log(arr2); */
 
+        /* let a = new Map();
+        let obj = {
+            a:1
+        }
+        a.set(obj,'111');
+        a.set('name','zs');
+        console.log(a); */
 
+        let obj = {
+            name:'zs',
+            age:20
+        };
+        let pro = new Proxy(obj,{
+            get:(target, key, proxy) => {
+                console.log('get....');
+                console.log(target, key, proxy);
+                return target[key];
+            },
+            set: (target,key,val,proxy) => {
+                console.log('set.....');
+                console.log(target,key,val,proxy);
+                target[key] = val;
+            }
+        });
+        console.log(pro.name);
+        // pro.name = 'list';
+        // console.log(obj.name);
     </script>
 </body>
 </html>
