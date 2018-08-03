@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <ul>
+            <li v-for="val in arr"> {{val}} </li>
+            <li v-for="(val,key) in obj"> {{key}} </li>
+            <li v-text="msg"></li>
+            <li v-html="msg"></li>
+
+            
+        </ul> -->
+        <button v-on:click="show"></button>
+        <div> {{num}} </div>
+    </div>
+    
+
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,4,5],
+                obj:{
+                    name:'zs',
+                    age:20,
+                    school:'weichuang'
+                },
+                msg:"aa",
+                num:0
+            },
+            methods:{
+                show(e){
+                    console.log(e);
+                    this.num++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

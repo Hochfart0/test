@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="756e76d4-8b99-4397-880a-90b36b8c2bd2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ES6/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/ES6/test.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,8 +55,8 @@
       <file leaf-file-name="test1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="250">
+              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -116,8 +116,19 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/ES6/node_modules" />
+    <handled-path value="$PROJECT_DIR$/app/node_modules" />
+    <handled-path value="$PROJECT_DIR$/vue-cli/projectname/node_modules" />
+    <handled-path value="$PROJECT_DIR$/webpack/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/ES6/package.json" />
+      <path value="$PROJECT_DIR$/app/package.json" />
+      <path value="$PROJECT_DIR$/vue-cli/projectname/package.json" />
+      <path value="$PROJECT_DIR$/webpack/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
@@ -129,7 +140,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,6 +151,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,6 +242,7 @@
       <workItem from="1531829644797" duration="1452000" />
       <workItem from="1531964043830" duration="12000" />
       <workItem from="1531969191994" duration="713000" />
+      <workItem from="1533029322543" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="这是一次尝试">
       <created>1523684498154</created>
@@ -425,7 +437,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240128000" />
+    <option name="totallyTimeSpent" value="240137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -840,8 +852,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        <state relative-caret-position="250">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-end-line="19" />
         </state>
       </provider>
     </entry>

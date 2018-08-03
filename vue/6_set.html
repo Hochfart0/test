@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="change()">click</button>
+        <ul>
+            <li v-for="val in list">{{val}}</li>
+        </ul>
+        <p v-for="(val,key) in obj">{{key}}--{{val}}</p>
+        
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                list:[1,2,3,4,5],
+                obj:{
+                    name:'zs',
+                }
+            },
+            methods:{
+                change(){
+                    // this.list[1] = 8;
+                    // this.list.splice(1,1,8);
+                    Vue.set(this.list,1);
+                    // this.obj.name = 'lisi';
+                    // this.obj[age] = 20;
+                    // Vue.set(this.obj,'age',30);
+                    // this.list.push(99);
+                    // this.obj.age = 20;
+                    // console.log(this.obj);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

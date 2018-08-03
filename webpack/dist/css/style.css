@@ -1,0 +1,11 @@
+/*! 嘉哥出品，必属精品! */
+* {
+  margin: 0;
+}
+
+body {
+  background: #fff url(http://localhost:8080/img/331997aa58f90b1d1168800d940eeaed.png);
+  border-radius: 3px;
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}

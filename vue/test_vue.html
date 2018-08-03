@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #container {
+            width: 400px;
+            margin: 50px auto;
+        }
+
+        input {
+            width: 100px;
+        }
+
+        li {
+            height: 50px;
+            line-height: 50px;
+            background: #cccccc;
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+
+        .price,
+        .close {
+            float: right;
+        }
+
+        .select {
+            background: #00ff00;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h1>todolist</h1>
+        <hr>
+        <div>
+            <label for="proName">名称</label>
+            <input type="text" id="proName" placeholder="请输入产品名" v-model="proName">
+            <label for="proPrice">价格</label>
+            <input type="text" id="proPrice" placeholder="请输入产品价格" v-model="proPrice">
+            <button class="add" @click="add">添加</button>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="请输入搜索内容">
+            <button class="search">搜索</button>
+        </div>
+        <ul>
+            <li v-for="(product,index) in proList" @click="change(product,index)" :class={select:product.isSelect}>
+                <input type="checkbox" v-model="checke" :value="index">
+                <span>{{product.name}}</span>
+                <span class="close">[X]</span>
+                <span class="price">{{product.price}}</span>
+            </li>
+        </ul>
+        <div>
+            <button class="del" @click="remove">删除选中</button>
+            <span>总价：</span>
+            <span class="total_price">0</span>
+        </div>
+    </div>
+
+
+    <script>
+        var proList = new Vue({
+            el: '#container',
+            data: {
+                proList: [
+                    {
+                        name: '衣服',
+                        price: 111,
+                        isSelect: false
+                    },
+                    {
+                        name: '裤子',
+                        price: 222,
+                        isSelect: false
+                    },
+                    {
+                        name: '手机',
+                        price: 3333,
+                        isSelect: false
+                    },
+                    {
+                        name: '电脑',
+                        price: 4444,
+                        isSelect: false
+                    }
+                ],
+                proName:'',
+                proPrice:'',
+                checke:[]
+            },
+            methods: {
+                change(product,idx) {
+                    if(product.isSelect){
+                        this.checke.splice(this.checke.indexOf(idx),1);                        
+                    }else{
+                        this.checke.push(idx);
+                    }
+                    product.isSelect = !product.isSelect;
+                    
+                },
+                add() {
+                    this.proList.push({
+                        name:this.proName,
+                        price:this.proPrice,
+                        isSelect:false
+                    })
+                    this.proName = '';
+                    this.proPrice = '';
+                },
+                remove() {
+                    for(var i=0; i<proList.length; i++){
+                        if(this.proList[i].isSelect == true){
+                            this.proList[i].remove();
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

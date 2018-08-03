@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            margin:50px auto;
+        }
+        input{
+            width: 100px;
+        }
+        li{
+            height: 50px;
+            line-height: 50px;
+            background: #cccccc;
+            padding: 0 10px;
+            margin-bottom:10px;
+        }
+        .price,.close{
+            float: right;
+        }
+        .select{
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>todolist</h1>
+        <hr>
+        <div>
+            <label for="proName">名称</label>
+            <input type="text" id="proName" placeholder="请输入产品名">
+            <label for="proPrice">价格</label>
+            <input type="text" id="proPrice" placeholder="请输入产品价格">
+            <button class="add">添加</button>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="请输入搜索内容">
+            <button>搜索</button>
+        </div>
+        <ul>
+            
+        </ul>
+        <div>
+            <button class="del">删除选中</button>
+            <span>总价：</span>
+            <span class="total_price">0</span>
+        </div>
+    </div>
+
+
+    <script src="../jQuery练习/jquery-1.12.4.js"></script>
+    <script>
+        let proList = [
+            {
+                name:'衣服',
+                price:111
+            },
+            {
+                name:'裤子',
+                price:222
+            },
+            {
+                name:'手机',
+                price:3333
+            },
+            {
+                name:'电脑',
+                price:4444
+            }
+        ];
+        for(var i=0; i<proList.length; i++){
+            var html = `<li>
+                <input type="checkbox">
+                <span>${proList[i].name}</span>
+                <span class="close">[X]</span>
+                <span class="price">${proList[i].price}</span>
+            </li>`;
+            $('ul').append(html)
+        }
+        var total = 0;
+        $('ul').on('click','li',function(){
+            if($(this).hasClass('select')){
+                $(this).removeClass('select').find('input').prop('checked',false);
+                total = $('.total_price').html()*1 - $(this).find('.price').html()*1;
+            }else{
+                $(this).addClass('select').find('input').prop('checked',true);
+                total = $('.total_price').html()*1 + $(this).find('.price').html()*1;
+            }
+            $('.total_price').html(total);
+        })
+        $('.add').on('click',function(){
+            proList.push({
+                name:$('#proName').val(),
+                price:$('#proPrice').val()
+            })
+            var html = `<li>
+                <input type="checkbox">
+                <span>${proList[i].name}</span>
+                <span class="close">[X]</span>
+                <span class="price">${proList[i].price}</span>
+            </li>`;
+            $('ul').append(html);
+        })
+        $('.del').on('click',function(){
+            // $('ul').find('.select').remove();
+            // $('.total_price').html(0);
+            $('input:checked').each(function(index){
+                var idx = index;
+                proList.splice(idx,1);
+                console.log(index);
+            })
+            console.log(proList);
+            console.log($('input:checked'));
+        })
+
+    </script>
+</body>
+
+</html>
